@@ -1,5 +1,3 @@
-## Common
-
 .PHONY: test
 
 -include config.mk
@@ -11,7 +9,8 @@ EMACS_ARGS ?=
 
 EASK ?= eask
 
-ci: package install compile test
+# TODO: add lint
+ci: package install compile checkdoc test
 
 package:
 	$(EASK) package
