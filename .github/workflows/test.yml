@@ -31,6 +31,7 @@ jobs:
                 version: 'snapshot'
 
             - name: Install requirements
+              if: matrix.os == 'ubuntu-latest'
               run: |
                   echo "$HOME/.cask/bin" >> $GITHUB_PATH
                   echo "$HOME/bin" >> $GITHUB_PATH
@@ -40,12 +41,14 @@ jobs:
                   sudo apt install -y texinfo libgif-dev libxpm-dev
 
             - name: Install needed rust stuff
+              if: matrix.os == 'ubuntu-latest'
               run: |
                   curl -sSf https://build.travis-ci.com/files/rustup-init.sh | sh -s -- --default-toolchain=stable -y
                   source $HOME/.cargo/env
                   rustup component add rustfmt-preview
 
             - name: rustic-doc prerequisites
+              if: matrix.os == 'ubuntu-latest'
               run: |
                    wget https://github.com/jgm/pandoc/releases/download/2.17.0.1/pandoc-2.17.0.1-1-amd64.deb
                    sudo dpkg -i pandoc-2.17.0.1-1-amd64.deb
