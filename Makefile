@@ -24,7 +24,7 @@ compile:
 test:
 	if [ -f "$(HOME)/.cargo/env" ] ; then . "$(HOME)/.cargo/env" ; fi ; \
 	$(EASK) install-deps --dev
-	$(EASK) ert ./test/*.el
+	$(EASK) test ert ./test/*.el
 
 checkdoc:
 	$(EASK) lint checkdoc
