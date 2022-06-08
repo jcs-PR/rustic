@@ -27,10 +27,10 @@ test:
 	$(EASK) ert ./test/*.el
 
 checkdoc:
-	$(EASK) checkdoc
+	$(EASK) lint checkdoc
 
 lint:
-	$(EASK) lint
+	$(EASK) lint package
 
 CLEAN  = $(PKG)-autoloads.el
 
